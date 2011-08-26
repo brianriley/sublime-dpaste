@@ -6,7 +6,7 @@ This plugin lets you quickly paste highlighted snippets of code to dpaste.com an
 Installation
 ============
 
-1. Copy dpaste.py to your User packages directory.
+1. Copy dpaste.py to your User folder within your Packages directory. Eg., on Mac, this is `~/Library/Application\ Support/Sublime\ Text\ 2/Packages/User/`.
 
 2. Create a key binding in your users key binding preferences. For instance, the following binds `ctrl+d` to the plugin:
 
