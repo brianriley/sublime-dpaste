@@ -26,7 +26,7 @@ class DpasteCommand(sublime_plugin.TextCommand):
             'language': self.view.file_name() and DpasteCommand.SYNTAXES.get(self.view.file_name().split('.')[-1], '') or ''
         })
         
-        connection= httplib.HTTPConnection('dpaste.com')
+        connection = httplib.HTTPConnection('dpaste.com')
         connection.request('POST', '/api/v1/', params)
         response = connection.getresponse()
 
