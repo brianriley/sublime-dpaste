@@ -23,7 +23,7 @@ class DpasteCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         params = urllib.urlencode({
             'content': '\n'.join([self.view.substr(region) for region in self.view.sel()]),
-            'language': DpasteCommand.SYNTAXES.get(self.view.file_name().split('.')[-1], '')
+            'language': self.view.file_name() and DpasteCommand.SYNTAXES.get(self.view.file_name().split('.')[-1], '') or ''
         })
         
         connection= httplib.HTTPConnection('dpaste.com')
