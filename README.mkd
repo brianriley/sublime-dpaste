@@ -1,0 +1,18 @@
+Sublime Text 2 dpaste.com Plugin
+--------------------------------
+
+This plugin lets you quickly paste highlighted snippets of code to dpaste.com and get the URL to share with others.
+
+Installation
+============
+
+1. Copy dpaste.py to your User packages directory.
+
+2. Create a key binding in your users key binding preferences. For instance, the following binds `ctrl+d` to the plugin:
+
+    {"keys": ["ctrl+d"], "command": "dpaste"}
+
+Usage
+=====
+
+Simply highlight some code and hit your key binding. The dpaste.com URL will be copied to your clipboard.
