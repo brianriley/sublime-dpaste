@@ -1,6 +1,8 @@
-import urllib, httplib
+import urllib
+import httplib
 
-import sublime_plugin, sublime
+import sublime_plugin
+import sublime
 
 
 class DpasteCommand(sublime_plugin.TextCommand):
@@ -25,10 +27,13 @@ class DpasteCommand(sublime_plugin.TextCommand):
             'content': '\n'.join([self.view.substr(region) for region in self.view.sel()]),
             'language': self.view.file_name() and DpasteCommand.SYNTAXES.get(self.view.file_name().split('.')[-1], '') or ''
         })
-        
+
         connection = httplib.HTTPConnection('dpaste.com')
         connection.request('POST', '/api/v1/', params)
         response = connection.getresponse()
 
-        sublime.set_clipboard(response.getheader('Location', ''))
-        sublime.status_message("Dpaste URL has been copied to clipboard")
+        if response.status == 302:
+            sublime.set_clipboard(response.getheader('Location', ''))
+            sublime.status_message("Dpaste URL has been copied to clipboard")
+        else:
+            sublime.status_message("There was an error. Please try again later.")
