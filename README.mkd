@@ -8,7 +8,7 @@ Installation
 
 **Sublime Package Control**
 
-Simply add this repository (https://github.com/brianriley/sublime-dpaste) and it should be available in the Install list.
+sublime-dpaste is discoverable and installable in [Sublime Package Control](http://wbond.net/sublime_packages/package_control).
 
 **Manual**
 
@@ -21,4 +21,4 @@ Simply add this repository (https://github.com/brianriley/sublime-dpaste) and it
 Usage
 -----
 
-Simply highlight some code and hit your key binding. The dpaste.com URL will be copied to your clipboard.
+Highlight some code and hit your key binding. If no code is highlighted, the entire file's text will be used. The dpaste.com URL will be copied to your clipboard.
