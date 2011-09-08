@@ -24,7 +24,7 @@ class DpasteCommand(sublime_plugin.TextCommand):
 
     def run(self, edit):
         params = urllib.urlencode({
-            'content': '\n'.join([self.view.substr(region) for region in self.view.sel()]),
+            'content': self.get_selected_content(),
             'language': self.view.file_name() and DpasteCommand.SYNTAXES.get(self.view.file_name().split('.')[-1], '') or ''
         })
 
@@ -37,3 +37,13 @@ class DpasteCommand(sublime_plugin.TextCommand):
             sublime.status_message("Dpaste URL has been copied to clipboard")
         else:
             sublime.status_message("There was an error. Please try again later.")
+
+    def get_selected_content(self):
+        """
+        Return the selected region or the entire buffer contents
+        if no region is selected.
+        """
+        content = '\n'.join([self.view.substr(region) for region in self.view.sel()])
+        if not content:
+            content = self.view.substr(sublime.Region(0, self.view.size()))
+        return content
