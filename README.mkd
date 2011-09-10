@@ -21,4 +21,4 @@ sublime-dpaste is discoverable and installable in [Sublime Package Control](http
 Usage
 -----
 
-Highlight some code and hit your key binding. If no code is highlighted, the entire file's text will be used. The dpaste.com URL will be copied to your clipboard.
+Highlight the code you want pasted to [dpaste.com](http://dpaste.com/), or don't to dpaste the entire file. Post to dpaste by hitting your keybinding (the default is Ctrl+D) or use the "dpaste it" command in the Command Palette.
